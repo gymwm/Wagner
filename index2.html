@@ -45,7 +45,7 @@
                                      // ID des HTML-Elements, 
                                      //   in dem die Karte gezeigt werden soll
       });
-}; funktion karte_auf_position_zentrieren(){ 
+}; function karte_auf_position_zentrieren(){ 
    navigator.geolocation.getCurrentPosition( function (position){
 				
    // Daten der Geoposition
@@ -66,7 +66,8 @@
 								
    // Aktualisierung der Kartenansicht
    map.setView( view ); 
-   }); function position_auf_karte_anzeigen(){
+   });
+}; function position_auf_karte_anzeigen(){
 
    var markerEl = document.getElementById('geolocation_marker');
    map.addOverlay(
