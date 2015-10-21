@@ -77,6 +77,27 @@
                       stopEvent: false
                     })
                  );
+   }function alles(){
+   var markerEl = document.getElementById('geolocation_marker');
+   navigator.geolocation.getCurrentPosition( function (position){
+      ausgabe("Sie sind jedenfalls hier: ( Long "
+               + position.coords.longitude 
+               + " | Lat "
+               + position.coords.latitude + " )");
+      geoPosition = [position.coords.longitude, position.coords.latitude];
+      positionAufKarte = ol.proj.transform(geoPosition, 'EPSG:4326', 'EPSG:3857');
+      map = new ol.Map({
+         layers: [new ol.layer.Tile({source: new ol.source.MapQuest({layer: 'osm'}) }) ],
+         view: new ol.View({ center: positionAufKarte, zoom: 12 }), 
+         target: 'map' });
+      map.addOverlay( 
+         new ol.Overlay({
+            position: positionAufKarte,
+            element: markerEl,
+            stopEvent: false 
+            }) 
+         ); 
+      });
    }
    }                                                                      //(**)
    
