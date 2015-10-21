@@ -98,6 +98,17 @@
             }) 
          ); 
       });
+   }function resetMap(){ 
+   if (map){                                  // vorausgesetzt: ol.Map map;
+      map = null;
+      document.getElementById('map').innerHTML = "";
+      }
+   if (!document.getElementById('geolocation_marker')){
+      var  _h = document.createElement('img'); 
+      _h.setAttribute('src','point.png');    // vorausgesetzt: Es existiert ein Datei point.png. 
+      _h.setAttribute('id','geolocation_marker');
+      document.body.appendChild(_h);
+      }
    }
    }                                                                      //(**)
    
